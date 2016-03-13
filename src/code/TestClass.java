@@ -3,15 +3,9 @@ package code;
 @Feature(featureName="TestClass1")
 public class TestClass {
 
-	int i;
-	String s;
-	Object o;
-	
-	@OptionFeature(featureName="TestClass2")
+	@OptionFeature(featureName="TestClass2", mandatory = false)
 	public TestClass(){}
 	
-	@OptionFeature(featureName="TestClass3")
-	private void foo(){
-		this.i++;
-	}
+	@OptionFeature(featureName="TestClass3", mandatory = true)
+	private void foo(){}
 }

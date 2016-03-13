@@ -1,6 +1,6 @@
 package code;
 
-@AlternativeNoExcludent(featureName="Multimedia")
+@AlternativeNoExcludent(featureName="Multimedia",mandatory = true)
 public class Multimedia {
 
 	public Multimedia(){}

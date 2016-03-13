@@ -25,6 +25,7 @@ public class FeatureProcessor extends AbstractProcessor<CtAnnotation<Feature>> {
 			Parent parent= FeatureContainer.getInstance().getStruct().getAnd();
 			ObjectFactory factory = new ObjectFactory();
 			generated.And and = factory.createAnd();
+			and.setMandatory((boolean)annotation.getElementValue("mandatory"));
 			and.setName(annotation.getElementValue("featureName").toString());
 			parent.getAndOrAltOrOr().add(and);
 		}else if(annotation.getAnnotationType().getSimpleName().equals("OptionFeature")){
@@ -46,20 +47,23 @@ public class FeatureProcessor extends AbstractProcessor<CtAnnotation<Feature>> {
 			}
 			ObjectFactory factory = new ObjectFactory();
 			generated.Feature feature = factory.createFeature();
+			feature.setMandatory((boolean)annotation.getElementValue("mandatory"));
 			feature.setName(annotation.getElementValue("featureName").toString());
 			parent.getAndOrAltOrOr().add(feature);
 		}else if(annotation.getAnnotationType().getSimpleName().equals("Alternative")){
 			Parent parent= FeatureContainer.getInstance().getStruct().getAnd();
 			ObjectFactory factory = new ObjectFactory();
-			generated.Alt and = factory.createAlt();
-			and.setName(annotation.getElementValue("featureName").toString());
-			parent.getAndOrAltOrOr().add(and);
+			generated.Alt alt = factory.createAlt();
+			alt.setMandatory((boolean)annotation.getElementValue("mandatory"));
+			alt.setName(annotation.getElementValue("featureName").toString());
+			parent.getAndOrAltOrOr().add(alt);
 		}else if(annotation.getAnnotationType().getSimpleName().equals("AlternativeNoExcludent")){
 			Parent parent= FeatureContainer.getInstance().getStruct().getAnd();
 			ObjectFactory factory = new ObjectFactory();
-			generated.Or and = factory.createOr();
-			and.setName(annotation.getElementValue("featureName").toString());
-			parent.getAndOrAltOrOr().add(and);
+			generated.Or or = factory.createOr();
+			or.setMandatory((boolean)annotation.getElementValue("mandatory"));
+			or.setName(annotation.getElementValue("featureName").toString());
+			parent.getAndOrAltOrOr().add(or);
 		}
 
 	}	
