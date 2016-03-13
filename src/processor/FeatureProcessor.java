@@ -3,7 +3,6 @@ package processor;
 import java.lang.annotation.Annotation;
 
 import annotation.Feature;
-import generated.And;
 import generated.NamedElement;
 import generated.ObjectFactory;
 import generated.Parent;
@@ -32,13 +31,14 @@ public class FeatureProcessor extends AbstractProcessor<CtAnnotation<Feature>> {
 			Parent parent = new Parent();
 			for (CtAnnotation<? extends Annotation> anotacionParent : annotation.getParent().getParent().getAnnotations()) {
 				System.out.println("Anotación del padre: "+anotacionParent.getAnnotationType().getSimpleName());
-				if(anotacionParent.getAnnotationType().getSimpleName().equals("Feature")){
+				if(anotacionParent.getAnnotationType().getSimpleName().equals("Feature") || 
+						anotacionParent.getAnnotationType().getSimpleName().equals("Alternative") ||
+						anotacionParent.getAnnotationType().getSimpleName().equals("AlternativeNoExcludent")){
 					//Si es una feature entonces debemos de buscarlo como padre de nuestra hojita
 					for (Object featuresHija : FeatureContainer.getInstance().getStruct().getAnd().getAndOrAltOrOr()) {
 						NamedElement and = (NamedElement) featuresHija;
 						if(anotacionParent.getElementValue("featureName").toString().equals(and.getName())){
-							System.out.println("Se ha encontrado en el arbol el feature padre: "+and.getName());
-							parent = (And) featuresHija;
+							parent = (Parent) featuresHija;
 							break;
 						}
 					}
@@ -48,6 +48,18 @@ public class FeatureProcessor extends AbstractProcessor<CtAnnotation<Feature>> {
 			generated.Feature feature = factory.createFeature();
 			feature.setName(annotation.getElementValue("featureName").toString());
 			parent.getAndOrAltOrOr().add(feature);
+		}else if(annotation.getAnnotationType().getSimpleName().equals("Alternative")){
+			Parent parent= FeatureContainer.getInstance().getStruct().getAnd();
+			ObjectFactory factory = new ObjectFactory();
+			generated.Alt and = factory.createAlt();
+			and.setName(annotation.getElementValue("featureName").toString());
+			parent.getAndOrAltOrOr().add(and);
+		}else if(annotation.getAnnotationType().getSimpleName().equals("AlternativeNoExcludent")){
+			Parent parent= FeatureContainer.getInstance().getStruct().getAnd();
+			ObjectFactory factory = new ObjectFactory();
+			generated.Or and = factory.createOr();
+			and.setName(annotation.getElementValue("featureName").toString());
+			parent.getAndOrAltOrOr().add(and);
 		}
 
 	}	
