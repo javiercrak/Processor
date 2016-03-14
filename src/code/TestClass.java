@@ -1,11 +1,17 @@
 package code;
 
-@Feature(featureName="TestClass1")
+//@Feature(featureName="TestClass1")
 public class TestClass {
 
-	@OptionFeature(featureName="TestClass2", mandatory = false)
+	int i;
+	String s;
+	Object o;
+	
+	//@OptionFeature(featureName="TestClass2")
 	public TestClass(){}
 	
-	@OptionFeature(featureName="TestClass3", mandatory = true)
-	private void foo(){}
+	//@OptionFeature(featureName="TestClass3")
+	private void foo(){
+		this.i++;
+	}
 }

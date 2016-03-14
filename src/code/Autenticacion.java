@@ -1,6 +1,6 @@
 package code;
 
-@Feature(featureName="Autenticacion")
+//@Feature(featureName="Autenticacion")
 public class Autenticacion {
 
 	int i;
@@ -9,12 +9,12 @@ public class Autenticacion {
 	
 	public Autenticacion(){}
 
-	@OptionFeature(featureName="Facebook",mandatory=false)
+	//@OptionFeature(featureName="Facebook",mandatory=false)
 	private void facebook(){
 		this.i++;
 	}
 	
-	@OptionFeature(featureName="Twitter",mandatory=false)
+	//@OptionFeature(featureName="Twitter",mandatory=false)
 	private void twitter(){
 		this.i++;
 	}

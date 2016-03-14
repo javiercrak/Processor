@@ -2,23 +2,11 @@
 <featureModel xsi:schemaLocation="./resources/featureide.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <struct>
         <and name="Biblioteca">
-            <and mandatory="false" name="Autenticacion">
-                <feature mandatory="false" name="Facebook"/>
-                <feature mandatory="false" name="Twitter"/>
-            </and>
-            <alt mandatory="false" name="ConexionDB">
-                <feature mandatory="false" name="MongoNoSQL"/>
-                <feature mandatory="false" name="MysqlRDB"/>
-            </alt>
-            <or mandatory="true" name="Multimedia">
-                <feature mandatory="false" name="Grabar Video"/>
-                <feature mandatory="false" name="Reproducir Video"/>
-                <feature mandatory="false" name="Tomar fotos"/>
-                <feature mandatory="false" name="Ver fotos"/>
-            </or>
-            <and mandatory="false" name="TestClass1">
-                <feature mandatory="false" name="TestClass2"/>
-                <feature mandatory="true" name="TestClass3"/>
+            <and mandatory="true" name="Libro">
+                <feature mandatory="false" name="Autores"/>
+                <feature mandatory="false" name="Referencia"/>
+                <feature mandatory="false" name="Titulo"/>
+                <feature mandatory="false" name="CopiasEnPrestamos"/>
             </and>
         </and>
     </struct>

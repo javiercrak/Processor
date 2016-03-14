@@ -1,26 +1,26 @@
 package code;
 
-@AlternativeNoExcludent(featureName="Multimedia",mandatory = true)
+//@AlternativeNoExcludent(featureName="Multimedia")
 public class Multimedia {
 
 	public Multimedia(){}
 
-	@OptionFeature(featureName="Reproducir Video")
+	//@OptionFeature(featureName="Reproducir Video")
 	private void reproducirVideo(){
 
 	}
 	
-	@OptionFeature(featureName="Grabar Video")
+	//@OptionFeature(featureName="Grabar Video")
 	private void grabarVideo(){
 
 	}
 	
-	@OptionFeature(featureName="Ver fotos")
+	//@OptionFeature(featureName="Ver fotos")
 	private void verFotos(){
 
 	}
 	
-	@OptionFeature(featureName="Tomar fotos")
+	//@OptionFeature(featureName="Tomar fotos")
 	private void tomarFotos(){
 
 	}
