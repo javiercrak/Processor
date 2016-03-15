@@ -2,13 +2,11 @@
 <featureModel xsi:schemaLocation="./resources/featureide.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <struct>
         <and name="Biblioteca">
-            <and name="Autenticacion">
-                <feature name="Facebook"/>
-                <feature name="Twitter"/>
-            </and>
-            <and name="TestClass1">
-                <feature name="TestClass2"/>
-                <feature name="TestClass3"/>
+            <and mandatory="true" name="Libro">
+                <feature mandatory="false" name="Autores"/>
+                <feature mandatory="false" name="Referencia"/>
+                <feature mandatory="false" name="Titulo"/>
+                <feature mandatory="false" name="CopiasEnPrestamos"/>
             </and>
         </and>
     </struct>

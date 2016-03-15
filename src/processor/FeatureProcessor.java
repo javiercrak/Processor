@@ -26,6 +26,7 @@ public class FeatureProcessor extends AbstractProcessor<CtAnnotation<Feature>> {
 			ObjectFactory factory = new ObjectFactory();
 			generated.And and = factory.createAnd();
 			and.setName(annotation.getElementValue("featureName").toString());
+			and.setMandatory((Boolean)annotation.getElementValue("mandatory"));
 			parent.getAndOrAltOrOr().add(and);
 		}else if(annotation.getAnnotationType().getSimpleName().equals("OptionFeature")){
 			Parent parent = new Parent();
@@ -47,18 +48,21 @@ public class FeatureProcessor extends AbstractProcessor<CtAnnotation<Feature>> {
 			ObjectFactory factory = new ObjectFactory();
 			generated.Feature feature = factory.createFeature();
 			feature.setName(annotation.getElementValue("featureName").toString());
+			feature.setMandatory((Boolean)annotation.getElementValue("mandatory"));
 			parent.getAndOrAltOrOr().add(feature);
 		}else if(annotation.getAnnotationType().getSimpleName().equals("Alternative")){
 			Parent parent= FeatureContainer.getInstance().getStruct().getAnd();
 			ObjectFactory factory = new ObjectFactory();
 			generated.Alt and = factory.createAlt();
 			and.setName(annotation.getElementValue("featureName").toString());
+			and.setMandatory((Boolean)annotation.getElementValue("mandatory"));
 			parent.getAndOrAltOrOr().add(and);
 		}else if(annotation.getAnnotationType().getSimpleName().equals("AlternativeNoExcludent")){
 			Parent parent= FeatureContainer.getInstance().getStruct().getAnd();
 			ObjectFactory factory = new ObjectFactory();
 			generated.Or and = factory.createOr();
 			and.setName(annotation.getElementValue("featureName").toString());
+			and.setMandatory((Boolean)annotation.getElementValue("mandatory"));
 			parent.getAndOrAltOrOr().add(and);
 		}
 
