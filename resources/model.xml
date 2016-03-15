@@ -1,13 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<featureModel xsi:schemaLocation="./resources/featureide.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <struct>
-        <and name="Biblioteca">
-            <and mandatory="true" name="Libro">
-                <feature mandatory="false" name="Autores"/>
-                <feature mandatory="false" name="Referencia"/>
-                <feature mandatory="false" name="Titulo"/>
-                <feature mandatory="false" name="CopiasEnPrestamos"/>
-            </and>
-        </and>
-    </struct>
-</featureModel>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="4">
+		<struct>
+			<and mandatory="true" name="Biblioteca">
+				<or name="Busquedas">
+					<feature mandatory="true" name="PorAutores"/>
+					<feature mandatory="true" name="PorAutoresExacto"/>
+					<feature mandatory="true" name="PorDescriptores"/>
+					<feature mandatory="true" name="PorDescriptoresExactos"/>
+					<feature mandatory="true" name="PorTitulo"/>
+					<feature mandatory="true" name="PorTituloExacto"/>
+				</or>
+				<and mandatory="true" name="Libro">
+					<feature name="Autores"/>
+					<feature name="Referencia"/>
+					<feature name="Titulo"/>
+					<feature name="CopiasEnPrestamos"/>
+				</and>
+				<and mandatory="true" name="ServicioUsuario">
+					<feature mandatory="true" name="LibrosAlquilados"/>
+					<feature mandatory="true" name="AlquilarLibro"/>
+				</and>
+				<and name="Inventario">
+					<feature name="CantidadDeLibros"/>
+					<feature name="AgregarCopiaLibro"/>
+					<feature mandatory="true" name="AgregarLibro"/>
+				</and>
+			</and>
+		</struct>
+		<constraints/>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
